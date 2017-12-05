@@ -57,11 +57,11 @@ module.exports = {
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
         }
       },
-      {
-        test: /\.(graphql|gql)$/,
-        exclude: /node_modules/,
-        loader: 'graphql-tag/loader'
-      },
+      // {
+      //   test: /\.(graphql|gql)$/,
+      //   exclude: /node_modules/,
+      //   loader: 'graphql-tag/loader'
+      // },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: 'url-loader',
