@@ -1,40 +1,26 @@
 <template>
-  <div>
-    <h1 v-if="loading">loading</h1>
-    <input type="text">
-    <ul>
-      <li v-for="item in queryArtists" :key="item.id">
-        {{item.name}}
-      </li>
+  <div class="col-lg">
+    <!-- <h1 v-if="loading">loading</h1> -->
+    <ul class="list-group">
+      <artist-list-item v-for="artist in artists" :key="artist.id" v-bind:artist="artist"/>
     </ul>
-  </li>
   </div>
 </template>
 
 <script>
-import gql from 'graphql-tag';
-
-const query = gql`
-  query ArtistList {
-    queryArtists(byName: "Queen") {
-      name
-      albums {
-        id
-        name
-      }
-    }
-  }`;
+import ArtistListItem from './ArtistListItem';
 
 export default {
   name: 'ArtistList',
+  props: ['artists'],
+  components: {
+    ArtistListItem,
+  },
   data() {
     return {
       loading: 0,
       queryArtists: [],
     };
-  },
-  apollo: {
-    queryArtists: query,
   },
 };
 </script>

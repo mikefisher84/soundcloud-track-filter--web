@@ -1,33 +1,28 @@
 <template>
-  <div>
-    <input type="text">
-  </div>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search"  v-model="artistName" v-on:keyup.enter="doSearch()">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" v-on:click="doSearch()">Search</button>
+      </form>
 </template>
 
 <script>
-import gql from 'graphql-tag';
-
-const query = gql`
-  query ArtistList {
-    queryArtists(byName: "Queen") {
-      name
-      albums {
-        id
-        name
-      }
-    }
-  }`;
-
 export default {
-  name: 'ArtistList',
+  name: 'Search',
   data() {
     return {
       loading: 0,
+      artistName: '',
       queryArtists: [],
     };
   },
-  apollo: {
-    queryArtists: query,
+  methods: {
+    doSearch() {
+      if (this.artistName.length > 0) {
+        const artistName = this.artistName;
+        this.$emit('queryArtistName', artistName);
+        this.artistName = '';
+      }
+    },
   },
 };
 </script>
