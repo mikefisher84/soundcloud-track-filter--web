@@ -28,7 +28,7 @@ export default {
   },
   data() {
     return {
-      queryArtistTest: '',
+      queryArtist: '',
       artist: '',
     };
   },
@@ -37,17 +37,17 @@ export default {
       query: QUERY_ARTIST,
       variables() {
         return {
-          artistName: this.queryArtistTest,
+          artistName: this.queryArtist,
         };
       },
       skip() {
-        return !this.queryArtistTest;
+        return !this.queryArtist;
       },
     },
   },
   methods: {
     queryArtistName(artistName) {
-      this.queryArtistTest = artistName;
+      this.queryArtist = artistName;
     },
     selectArtist(artist) {
       this.artist = artist;
