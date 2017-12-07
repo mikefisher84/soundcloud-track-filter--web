@@ -5,6 +5,11 @@ query ArtistList ($artistName: String!) {
       id
       name
       image
+      tracks {
+        name
+        preview_url
+        id
+      }
     }
   }
 }

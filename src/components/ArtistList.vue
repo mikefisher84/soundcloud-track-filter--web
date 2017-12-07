@@ -1,10 +1,7 @@
 <template>
-  <div class="col-lg">
-    <!-- <h1 v-if="loading">loading</h1> -->
     <ul class="list-group">
-      <artist-list-item v-for="artist in artists" :key="artist.id" v-bind:artist="artist"/>
+      <artist-list-item v-for="artist in artists" :key="artist.id" v-bind:artist="artist" v-on:selectArtist="selectArtist"/>
     </ul>
-  </div>
 </template>
 
 <script>
@@ -21,6 +18,11 @@ export default {
       loading: 0,
       queryArtists: [],
     };
+  },
+  methods: {
+    selectArtist(artist) {
+      this.$emit('selectArtist', artist);
+    },
   },
 };
 </script>

@@ -1,21 +1,18 @@
 <template>
   <div>
-    <a href="#" class="list-group-item list-group-item-action" v-on:click="show()">{{artist.name}} </a>
-    <div class="card-group" v-if="showAlbums">
-      <album class="col-sm" v-for="album in artist.albums" :key="album.id" v-bind:album="album"/>
-    </div>
+    <a href="#" class="list-group-item list-group-item-action" v-on:click="show(artist)">{{artist.name}} </a>
   </div>
 
 </template>
 
 <script>
-import Album from './Album'
+import Album from './Album';
 
 export default {
   name: 'artistListItem',
   props: ['artist'],
   components: {
-    Album
+    Album,
   },
   data() {
     return {
@@ -23,8 +20,9 @@ export default {
     };
   },
   methods: {
-    show() {
-      this.showAlbums = !this.showAlbums;
+    show(artist) {
+      this.$root.$emit('selectedArtist');
+      this.$emit('selectArtist', artist);
     },
   },
 };

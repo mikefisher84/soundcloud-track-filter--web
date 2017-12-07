@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
     <a class="navbar-brand" href="#">Spotify GraphQL</a>
     <search v-on:queryArtistName="queryArtistName"/>
   </nav>

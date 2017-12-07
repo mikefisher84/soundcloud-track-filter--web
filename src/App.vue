@@ -1,18 +1,20 @@
 <template>
-  <div id="app" class="container">
-    <div class="row">
-      <heading class="col-lg" v-on:queryArtistName="queryArtistName"/>
+  <div id="app">
+    <heading class="col-lg" v-on:queryArtistName="queryArtistName"/>
+    <div class="container-fluid">
+      <div class="row">
+        <artist-list class="col-lg-3" v-bind:artists="queryArtists" v-on:selectArtist="selectArtist"/>
+        <artist-detail class="col-lg-9" v-bind:artist="artist" />
+      </div>
     </div>
-    <!-- <search v-on:queryArtistName="queryArtistName"/> -->
-    <div class="row">
-      <artist-list v-bind:artists="queryArtists"/>
-    </div>
+
   </div>
 </template>
 
 <script>
 import QUERY_ARTIST from './graphql/query-artist-name.gql';
 import ArtistList from './components/ArtistList';
+import ArtistDetail from './components/ArtistDetail';
 import Heading from './components/Heading';
 import Search from './components/Search';
 
@@ -22,10 +24,12 @@ export default {
     ArtistList,
     Search,
     Heading,
+    ArtistDetail,
   },
   data() {
     return {
       queryArtistTest: '',
+      artist: '',
     };
   },
   apollo: {
@@ -45,6 +49,9 @@ export default {
     queryArtistName(artistName) {
       this.queryArtistTest = artistName;
     },
+    selectArtist(artist) {
+      this.artist = artist;
+    },
   },
 };
 </script>
@@ -56,6 +63,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
