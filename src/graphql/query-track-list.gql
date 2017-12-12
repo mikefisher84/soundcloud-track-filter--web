@@ -1,0 +1,7 @@
+query TrackList ($id: String!) {
+  queryTracks(byId: $id) {
+    name
+    id
+    preview_url
+  }
+}

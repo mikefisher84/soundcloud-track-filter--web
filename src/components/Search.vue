@@ -1,7 +1,10 @@
 <template>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search"  v-model="artistName" v-on:keyup.enter="doSearch()">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" v-on:click="doSearch()">Search</button>
+        <button class="btn btn-success btn-pill my-2 my-sm-0" type="submit" v-on:click="doSearch()">
+          <i class="fa fa-search mr-2"></i>
+          Search
+        </button>
       </form>
 </template>
 

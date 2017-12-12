@@ -1,6 +1,8 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'shards-ui/dist/css/shards.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import Vue from 'vue';
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
